@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard | NAVIK'S TECHPRO</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #07111f;
+    --panel: #101e30;
+    --panel2: #15263b;
+    --text: #eef5ff;
+    --muted: #a6b7cc;
+    --accent: #00e5ff;
+    --border: #263b54;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+header {
+    padding: 20px 6%;
+    border-bottom: 1px solid var(--border);
+    background: #0a1728;
+}
+
+.brand {
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: bold;
+}
+
+header p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 12px;
+}
+
+p {
+    color: var(--muted);
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.login-panel {
+    max-width: 460px;
+    margin: 55px auto;
+}
+
+label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    background: #081525;
+    color: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font: inherit;
+}
+
+button, .button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 12px 18px;
+    background: var(--accent);
+    color: #00131b;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.secondary {
+    background: var(--panel2);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.notice {
+    background: #172b42;
+    border-left: 4px solid var(--accent);
+    padding: 13px;
+    border-radius: 6px;
+    margin-top: 18px;
+    font-size: 14px;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.stat {
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--accent);
+    font-size: 27px;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.menu a {
+    color: var(--text);
+    background: var(--panel2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    border-color: var(--accent);
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    padding: 13px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+}
+
+th {
+    color: var(--accent);
+}
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+    main {
+        margin-top: 20px;
+    }
+
+    .panel {
+        padding: 17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="brand">NAVIK'S TECHPRO</div>
+    <p>Admin Control Centre · Turning Ideas into Intelligent Innovations</p>
+</header>
+
+<main>
+
+    <!-- ADMIN LOGIN INTERFACE -->
+    <section class="panel login-panel">
+        <h1>Admin Login</h1>
+        <p>Authorised administrators only.</p>
+
+        <form action="#" method="post">
+            <label for="admin-email">Admin Email</label>
+            <input
+                type="email"
+                id="admin-email"
+                name="admin_email"
+                placeholder="Enter admin email"
+                autocomplete="username"
+                required
+            >
+
+            <label for="admin-password">Password</label>
+            <input
+                type="password"
+                id="admin-password"
+                name="admin_password"
+                placeholder="Enter password"
+                autocomplete="current-password"
+                required
+            >
+
+            <button type="submit">Sign In</button>
+        </form>
+
+        <div class="notice">
+            <strong>Demo interface:</strong> This form does not authenticate
+            users. Connect a secure server-side login before using it for
+            real customer information.
+        </div>
+    </section>
+
+    <!-- DASHBOARD DESIGN PREVIEW -->
+    <section class="panel">
+        <h1>Dashboard Preview</h1>
+        <p>
+            Overview of project requests, quotations, customer files,
+            and website administration.
+        </p>
+
+        <div class="dashboard-grid">
+            <div class="stat">
+                <strong>—</strong>
+                <span>Total Orders</span>
+            </div>
+
+            <div class="stat">
+                <strong>—</strong>
+                <span>Pending Quotations</span>
+            </div>
+
+            <div class="stat">
+                <strong>—</strong>
+                <span>Active Projects</span>
+            </div>
+
+            <div class="stat">
+                <strong>—</strong>
+                <span>Completed Projects</span>
+            </div>
+        </div>
+
+        <nav class="menu">
+            <a href="#orders">Orders</a>
+            <a href="#quotations">Quotations</a>
+            <a href="#uploads">Customer Uploads</a>
+            <a href="#reports">Reports</a>
+            <a href="#settings">Settings</a>
+        </nav>
+    </section>
+
+    <section class="panel" id="orders">
+        <h2>Order Management</h2>
+        <p>Real customer orders will appear here after database integration.</p>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Project</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="4">
+                            No live orders connected yet.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="panel" id="quotations">
+        <h2>Quotation Management</h2>
+        <p>
+            Review project requirements, prepare a custom quotation,
+            and record approval after secure backend integration.
+        </p>
+    </section>
+
+    <section class="panel" id="uploads">
+        <h2>Customer Uploads</h2>
+        <p>
+            Uploaded files must be stored privately, checked for safety,
+            and made accessible only to authorised users.
+        </p>
+    </section>
+
+    <section class="panel" id="reports">
+        <h2>Reports</h2>
+        <p>
+            Planned reports include order totals, project statuses,
+            quotation approvals, and completion statistics.
+        </p>
+    </section>
+
+    <section class="panel" id="settings">
+        <h2>Website Settings</h2>
+
+        <label for="site-name">Website Name</label>
+        <input
+            id="site-name"
+            type="text"
+            value="NAVIK'S TECHPRO"
+            readonly
+        >
+
+        <label for="contact-number">Business WhatsApp</label>
+        <input
+            id="contact-number"
+            type="text"
+            value="+91 7739362847"
+            readonly
+        >
+
+        <p style="margin-top: 12px;">
+            These are display examples. Settings cannot be saved
+            from this static page.
+        </p>
+    </section>
+
+    <a class="button secondary" href="index.html">
+        Back to Website
+    </a>
+
+</main>
+
+<footer>
+    © 2026 NAVIK'S TECHPRO · Ayush Kumar Navik
+</footer>
+
+</body>
+</html>

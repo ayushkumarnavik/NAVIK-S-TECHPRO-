@@ -1,0 +1,10 @@
+
+User-agent: *
+Allow: /
+
+# Do not encourage indexing of utility pages
+Disallow: /admin.html
+Disallow: /order.html
+
+# Add your sitemap after publishing the website
+# Sitemap: https://YOUR-DOMAIN.example/sitemap.xml

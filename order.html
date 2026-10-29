@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#070b16">
+  <meta name="description" content="Submit your technology project enquiry to NAVIK'S TECHPRO.">
+  <title>Order a Project | NAVIK'S TECHPRO</title>
+
+  <style>
+    :root {
+      --bg: #070b16;
+      --panel: #10182b;
+      --cyan: #36e6ff;
+      --purple: #9b72ff;
+      --text: #f4f7ff;
+      --muted: #a7b3ca;
+      --border: rgba(255,255,255,.13);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(ellipse at top left, #10273b, transparent 42%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(900px, 92%); margin: auto; }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      background: rgba(7,11,22,.95);
+    }
+
+    .navbar {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 12px 0;
+    }
+
+    .logo { font-weight: 900; font-size: 1.15rem; }
+    .logo span { color: var(--cyan); }
+
+    .back-link { color: var(--cyan); }
+
+    main { padding: 50px 0 75px; }
+
+    .intro { text-align: center; margin-bottom: 30px; }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: .8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      line-height: 1.15;
+      margin: 10px 0;
+    }
+
+    .intro p { color: var(--muted); }
+
+    .form-panel {
+      background: rgba(16,24,43,.96);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: clamp(20px, 5vw, 38px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    }
+
+    .form-section + .form-section {
+      border-top: 1px solid var(--border);
+      margin-top: 30px;
+      padding-top: 26px;
+    }
+
+    h2 { font-size: 1.3rem; margin-bottom: 18px; }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 19px;
+    }
+
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .full { grid-column: 1 / -1; }
+
+    label, legend { font-weight: 700; font-size: .93rem; }
+
+    .required { color: var(--cyan); }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 13px;
+      border: 1px solid #35435d;
+      border-radius: 9px;
+      background: #080f1e;
+      color: var(--text);
+      font: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px;
+    }
+
+    input::placeholder, textarea::placeholder { color: #8190aa; }
+
+    textarea { resize: vertical; min-height: 125px; }
+
+    input[type="file"] { padding: 10px; }
+
+    fieldset { border: 0; min-width: 0; }
+
+    .choices {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      border: 1px solid var(--border);
+      padding: 11px;
+      border-radius: 9px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .choice input {
+      width: auto;
+      margin-top: 5px;
+      accent-color: var(--cyan);
+    }
+
+    .hint { color: var(--muted); font-size: .83rem; }
+
+    .consent {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-top: 25px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .consent input {
+      width: auto;
+      margin-top: 5px;
+      accent-color: var(--cyan);
+    }
+
+    .submit-button {
+      display: block;
+      width: 100%;
+      margin-top: 23px;
+      border: 0;
+      border-radius: 10px;
+      padding: 15px;
+      background: var(--cyan);
+      color: #07101b;
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .submit-button:hover { background: #91f3ff; }
+
+    .notice {
+      margin-top: 15px;
+      padding: 13px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: .9rem;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid, .choices { grid-template-columns: 1fr; }
+      .full { grid-column: auto; }
+      main { padding-top: 35px; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="container navbar">
+    <a class="logo" href="index.html">NAVIK'S <span>TECHPRO</span></a>
+    <a class="back-link" href="index.html">← Back to Home</a>
+  </div>
+</header>
+
+<main class="container">
+  <div class="intro">
+    <div class="eyebrow">Let's Build Something</div>
+    <h1>Order a <span style="color:#36e6ff">Project</span></h1>
+    <p>Tell us about your idea so we can review your requirements and prepare a quotation.</p>
+  </div>
+
+  <div class="form-panel">
+    <!--
+      This is a front-end form template.
+      Do not enter real customer data expecting it to be saved:
+      no backend is connected yet.
+    -->
+    <form action="#" method="post" enctype="multipart/form-data">
+
+      <section class="form-section">
+        <h2>01 — Your Details</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Full name <span class="required">*</span></label>
+            <input id="name" name="customer_name" type="text"
+                   autocomplete="name" maxlength="100" required
+                   placeholder="Enter your full name">
+          </div>
+
+          <div class="field">
+            <label for="phone">Mobile number <span class="required">*</span></label>
+            <input id="phone" name="phone" type="tel"
+                   autocomplete="tel" maxlength="20" required
+                   placeholder="+91 98765 43210">
+          </div>
+
+          <div class="field">
+            <label for="email">Email address (optional)</label>
+            <input id="email" name="email" type="email"
+                   autocomplete="email" maxlength="254"
+                   placeholder="you@example.com">
+          </div>
+
+          <div class="field">
+            <label for="city">City and state <span class="required">*</span></label>
+            <input id="city" name="city" type="text"
+                   autocomplete="address-level2" maxlength="120"
+                   required placeholder="Your location">
+          </div>
+
+          <div class="field">
+            <label for="customer_type">Ordering as <span class="required">*</span></label>
+            <select id="customer_type" name="customer_type" required>
+              <option value="">Choose one</option>
+              <option value="student">Student</option>
+              <option value="individual">Individual / hobbyist</option>
+              <option value="school">School / college</option>
+              <option value="business">Business / organisation</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="contact_method">Preferred contact <span class="required">*</span></label>
+            <select id="contact_method" name="contact_method" required>
+              <option value="whatsapp">WhatsApp</option>
+              <option value="call">Phone call</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>02 — Project Requirements</h2>
+        <div class="form-grid">
+          <div class="field full">
+            <label for="service">Select service <span class="required">*</span></label>
+            <select id="service" name="service" required>
+              <option value="">Choose a service</option>
+              <option>Arduino & Robotics</option>
+              <option>AI Projects</option>
+              <option>Website Development</option>
+              <option>School & College Projects</option>
+              <option>Electronics Repair & Prototyping</option>
+              <option>IoT & Smart Home Projects</option>
+              <option>Technical Consultation</option>
+              <option>3D Design & CAD</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="field full">
+            <label for="project_name">Project title <span class="required">*</span></label>
+            <input id="project_name" name="project_name" type="text"
+                   maxlength="150" required
+                   placeholder="e.g. Arduino obstacle-avoiding robot">
+          </div>
+
+          <div class="field full">
+            <label for="description">Describe your project <span class="required">*</span></label>
+            <textarea id="description" name="description"
+                      minlength="10" maxlength="5000" required
+                      placeholder="Explain how it should work, its features, and what you want built."></textarea>
+          </div>
+
+          <fieldset class="field full">
+            <legend>Project purpose <span class="required">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="purpose" value="school" required> School exhibition / assignment</label>
+              <label class="choice"><input type="radio" name="purpose" value="college"> College project</label>
+              <label class="choice"><input type="radio" name="purpose" value="personal"> Personal use / hobby</label>
+              <label class="choice"><input type="radio" name="purpose" value="business"> Business use</label>
+              <label class="choice"><input type="radio" name="purpose" value="other"> Other</label>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>03 — Budget & Deadline</h2>
+        <div class="form-grid">
+          <div class="field">
+            <label for="budget">Budget <span class="required">*</span></label>
+            <select id="budget" name="budget" required>
+              <option value="">Choose a budget</option>
+              <option>Under ₹500</option>
+              <option>₹500–₹2,000</option>
+              <option>₹2,001–₹5,000</option>
+              <option>₹5,001–₹10,000</option>
+              <option>Above ₹10,000</option>
+              <option>Not sure — suggest a budget</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="deadline">Required completion date <span class="required">*</span></label>
+            <select id="deadline" name="deadline" required>
+              <option value="">Choose a timeline</option>
+              <option>Within 3 days</option>
+              <option>Within 1 week</option>
+              <option>Within 2–4 weeks</option>
+              <option>Flexible / to be discussed</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="parts">Do you have components?</label>
+            <select id="parts" name="parts">
+              <option value="need">I need components arranged</option>
+              <option value="have">I already have some components</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="delivery">Preferred delivery method</label>
+            <select id="delivery" name="delivery">
+              <option value="discuss">Discuss after quotation</option>
+              <option value="pickup">In-person collection, if available</option>
+              <option value="shipping">Courier, if available</option>
+              <option value="digital">Digital delivery (code/design)</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2>04 — Reference Files</h2>
+        <div class="field">
+          <label for="reference_files">Attach images or documents (optional)</label>
+          <input id="reference_files" name="reference_files[]"
+                 type="file" multiple
+                 accept=".png,.jpg,.jpeg,.webp,.pdf">
+          <p class="hint">
+            Reference images, sketches, or PDF requirements.
+            File uploads will only work after secure server-side storage is configured.
+          </p>
+        </div>
+
+        <div class="field" style="margin-top:18px">
+          <label for="notes">Additional requirements (optional)</label>
+          <textarea id="notes" name="notes" maxlength="3000"
+                    placeholder="Preferred components, size, documentation, or other instructions."></textarea>
+        </div>
+      </section>
+
+      <label class="consent">
+        <input type="checkbox" name="contact_consent" value="yes" required>
+        <span>I agree that NAVIK'S TECHPRO may use the information I provide to respond to this enquiry. Please read the <a href="privacy.html" style="color:#36e6ff">Privacy Policy</a>.</span>
+      </label>
+
+      <button class="submit-button" type="submit">
+        Submit Project Enquiry
+      </button>
+
+      <p class="notice">
+        This is currently a front-end template. Submitting it will not save an order
+        until a secure backend and database connection are implemented.
+        No payment is collected on this page.
+      </p>
+    </form>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    © 2026 NAVIK'S TECHPRO — Turning Ideas into Intelligent Innovations
+  </div>
+</footer>
+</body>
+</html>
